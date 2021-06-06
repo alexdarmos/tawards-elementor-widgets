@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Main Elementor_Tawards Class
  *
- * The init class that runs the Elementor WTP Addon plugin.
+ * The init class that runs the Elementor Tawards Widget plugin.
  * Intended To make sure that the plugin's minimum requirements are met.
  *
  * You should only modify the constants to match your plugin's needs.
@@ -78,7 +78,7 @@ final class Elementor_Tawards {
 	 * @access public
 	 */
 	public function i18n() {
-		load_plugin_textdomain( 'elementor-wtp-addon' );
+		load_plugin_textdomain( 'elementor-tawards-addon' );
 	}
 
 	/**
@@ -139,7 +139,7 @@ final class Elementor_Tawards {
 					),
 				)
 			),
-			'Elementor WTP Addon',
+			'Elementor Tawards Widget',
 			'Elementor'
 		);
 	}
@@ -166,7 +166,7 @@ final class Elementor_Tawards {
 					),
 				)
 			),
-			'Elementor WTP Addon',
+			'Elementor Tawards Widget',
 			'Elementor',
 			self::MINIMUM_ELEMENTOR_VERSION
 		);
@@ -194,7 +194,7 @@ final class Elementor_Tawards {
 					),
 				)
 			),
-			'Elementor WTP Addon',
+			'Elementor Tawards Widget',
 			'Elementor',
 			self::MINIMUM_ELEMENTOR_VERSION
 		);
