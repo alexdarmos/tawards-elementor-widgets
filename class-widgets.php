@@ -65,7 +65,7 @@ class Widgets {
 	 * @access private
 	 */
 	private function include_widgets_files() {
-		require_once 'widgets/class-widgets.php';
+		require_once 'widgets/class-category-widget.php';
 	}
 
 	/**
