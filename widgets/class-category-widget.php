@@ -17,15 +17,17 @@ namespace TawardsWidget\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
+use Elementor\Repeater;
+use Elementor\Utils;
 
 // use Elementor\Controls_Stack;
 // use Elementor\Group_Control_Typography;
 // use Elementor\Scheme_Typography;
 // use Elementor\Scheme_Color;
 // use Elementor\Group_Control_Border;
-// use Elementor\Repeater;
 
-// use Elementor\Utils;
+
+
 // use Elementor\Group_Control_Text_Shadow;
 // use Elementor\Plugin;
 
@@ -115,220 +117,47 @@ class PromoCategories extends Widget_Base {
         $this->add_control(
 			'title',
 			array(
-				'label'   => __( 'Title', 'elementor-awesomesauce' ),
+				'label'   => __( 'Title', 'elementor-promo-categories' ),
 				'type'    => Controls_Manager::TEXT,
-				'default' => __( 'Title', 'elementor-awesomesauce' ),
+				'default' => __( 'Title', 'elementor-promo-categories' ),
 			)
 		);
 
-        // $this->add_control(
-        //     'bg_image',
-        //     [
-        //         'label' => __( 'Background Pattern Image', 'elementor-promo-categories' ),
-        //         'type' => Controls_Manager::MEDIA,
-        //         'default' => ['url' => Utils::get_placeholder_image_src(),],
-
-        //     ]
-        // );
-        // $this->add_control(
-        //     'about_image',
-        //     [
-        //         'label' => __( 'About Image', 'elementor-promo-categories' ),
-        //         'type' => Controls_Manager::MEDIA,
-        //         'default' => ['url' => Utils::get_placeholder_image_src(),],
-
-        //     ]
-        // );
-        // $this->add_control(
-        //     'icon_image',
-        //     [
-        //         'label' => __( 'Icon Image', 'elementor-promo-categories' ),
-        //         'type' => Controls_Manager::MEDIA,
-        //         'default' => ['url' => Utils::get_placeholder_image_src(),],
-
-        //     ]
-        // );
-        // $this->add_control(
-        //     'title',
-        //     [
-        //         'label'       => __('Title', 'elementor-promo-categories'),
-        //         'type'        => Controls_Manager::TEXTAREA,
-        //         'dynamic'     => [
-        //             'active' => true,
-        //         ],
-        //         'placeholder' => __('Enter your Title', 'elementor-promo-categories'),
-        //     ]
-        // );
-        // $this->add_control(
-        //     'btn_title',
-        //     [
-        //         'label'       => __( 'Button Title', 'elementor-promo-categories' ),
-        //         'type'        => Controls_Manager::TEXT,
-        //         'dynamic'     => [
-        //             'active' => true,
-        //         ],
-        //         'placeholder' => __( 'Enter your Button Title', 'elementor-promo-categories' ),
-        //         'default'     => __( 'Guides & E-books', 'elementor-promo-categories' ),
-        //     ]
-        // );
-        // $this->add_control(
-        //     'btn_link',
-        //     [
-        //         'label' => __( 'Button Url', 'elementor-promo-categories' ),
-        //         'type' => Controls_Manager::URL,
-        //         'placeholder' => __( 'https://your-link.com', 'plugin-domain' ),
-        //         'show_external' => true,
-        //         'default' => [
-        //             'url' => '',
-        //             'is_external' => true,
-        //             'nofollow' => true,
-        //         ],
-        //     ]
-        // );
-        // $this->add_control(
-        //     'subtitle',
-        //     [
-        //         'label'       => __('Sub Title', 'elementor-promo-categories'),
-        //         'type'        => Controls_Manager::TEXTAREA,
-        //         'dynamic'     => [
-        //             'active' => true,
-        //         ],
-        //         'placeholder' => __('Enter your Sub Title', 'elementor-promo-categories'),
-        //     ]
-        // );
-        // $this->add_control(
-        //     'heading',
-        //     [
-        //         'label'       => __('Title/Heading', 'elementor-promo-categories'),
-        //         'type'        => Controls_Manager::TEXTAREA,
-        //         'dynamic'     => [
-        //             'active' => true,
-        //         ],
-        //         'placeholder' => __('', 'elementor-promo-categories'),
-        //     ]
-        // );
-        // $this->add_control(
-        //     'text',
-        //     [
-        //         'label'       => __('Text', 'elementor-promo-categories'),
-        //         'type'        => Controls_Manager::TEXTAREA,
-        //         'dynamic'     => [
-        //             'active' => true,
-        //         ],
-        //         'placeholder' => __('Enter your Text', 'elementor-promo-categories'),
-        //     ]
-        // );
-        // $this->add_control(
-        //     'btn_title1',
-        //     [
-        //         'label'       => __( 'Button Title', 'elementor-promo-categories' ),
-        //         'type'        => Controls_Manager::TEXT,
-        //         'dynamic'     => [
-        //             'active' => true,
-        //         ],
-        //         'placeholder' => __( 'Enter your Button Title', 'elementor-promo-categories' ),
-        //         'default'     => __( 'More About Us', 'elementor-promo-categories' ),
-        //     ]
-        // );
-        // $this->add_control(
-        //     'btn_link1',
-        //     [
-        //         'label' => __( 'Button Url', 'elementor-promo-categories' ),
-        //         'type' => Controls_Manager::URL,
-        //         'placeholder' => __( 'https://your-link.com', 'plugin-domain' ),
-        //         'show_external' => true,
-        //         'default' => [
-        //             'url' => '',
-        //             'is_external' => true,
-        //             'nofollow' => true,
-        //         ],
-        //     ]
-        // );
-
-        // $this->add_control(
-        //     'our_tabs',
-        //     [
-        //         'type' => Controls_Manager::REPEATER,
-        //         'seperator' => 'before',
-        //         'default' =>
-        //             [
-        //                 ['title1' => esc_html__('Hire Your Next Candidate On Eazy Recruitz', 'eazyrecruitz')],
-        //                 ['title1' => esc_html__('Explore Your Career Path With Eazy Recruitz', 'eazyrecruitz')],
-        //             ],
-        //         'fields' =>
-        //             [
-        //                 [
-        //                     'name' => 'icons',
-        //                     'label' => esc_html__('Enter The icons', 'eazyrecruitz'),
-        //                     'type' => Controls_Manager::SELECT,
-        //                     'options'  => get_fontawesome_icons(),
-        //                 ],
-        //                 [
-        //                     'name' => 'button_title',
-        //                     'label' => esc_html__('Tab Button Title', 'eazyrecruitz'),
-        //                     'type' => Controls_Manager::TEXT,
-        //                     'default' => esc_html__('', 'eazyrecruitz')
-        //                 ],
-        //                 [
-        //                     'name' => 'subtitle1',
-        //                     'label' => esc_html__('Sub Title', 'eazyrecruitz'),
-        //                     'type' => Controls_Manager::TEXTAREA,
-        //                     'default' => esc_html__('', 'eazyrecruitz')
-        //                 ],
-        //                 [
-        //                     'name' => 'title1',
-        //                     'label' => esc_html__('Title', 'eazyrecruitz'),
-        //                     'type' => Controls_Manager::TEXTAREA,
-        //                     'default' => esc_html__('', 'eazyrecruitz')
-        //                 ],
-        //                 [
-        //                     'name' => 'text1',
-        //                     'label' => esc_html__('Text', 'eazyrecruitz'),
-        //                     'type' => Controls_Manager::TEXTAREA,
-        //                     'default' => ''
-        //                 ],
-        //                 [
-        //                     'name' => 'icon_image1',
-        //                     'label' => esc_html__('Icon image V1', 'eazyrecruitz'),
-        //                     'type' => Controls_Manager::MEDIA,
-        //                     'default' => ['url' => Utils::get_placeholder_image_src(),],
-        //                 ],
-        //                 [
-        //                     'name' => 'list_title1',
-        //                     'label' => esc_html__('Description', 'eazyrecruitz'),
-        //                     'type' => Controls_Manager::TEXTAREA,
-        //                     'default' => ''
-        //                 ],
-        //                 [
-        //                     'name' => 'icon_image2',
-        //                     'label' => esc_html__('Icon image V2', 'eazyrecruitz'),
-        //                     'type' => Controls_Manager::MEDIA,
-        //                     'default' => ['url' => Utils::get_placeholder_image_src(),],
-        //                 ],
-        //                 [
-        //                     'name' => 'list_title2',
-        //                     'label' => esc_html__('Description', 'eazyrecruitz'),
-        //                     'type' => Controls_Manager::TEXTAREA,
-        //                     'default' => ''
-        //                 ],
-        //                 [
-        //                     'name' => 'btn_title',
-        //                     'label' => esc_html__('Button Title', 'eazyrecruitz'),
-        //                     'type' => Controls_Manager::TEXT,
-        //                     'default' => ''
-        //                 ],
-        //                 [
-        //                     'name' => 'btn_link',
-        //                     'label' => __( 'Button Url', 'eazyrecruitz' ),
-        //                     'type' => Controls_Manager::URL,
-        //                     'placeholder' => __( 'https://your-link.com', 'plugin-domain' ),
-        //                     'show_external' => true,
-        //                     'default' => ['url' => '','is_external' => true,'nofollow' => true,],
-        //                 ],
-        //             ],
-        //         'title_field' => '{{title1}}',
-        //     ]
-        // );
+        $this->add_control(
+            'category-tabs',
+            [
+                'type' => Controls_Manager::REPEATER,
+                'seperator' => 'before',
+                'default' =>
+                    [
+                        ['category_title' => esc_html__( 'Trophies', 'elementor-promo-categories')],
+                        ['category_title' => esc_html__( 'Ribbons', 'elementor-promo-categories')],
+                    ],
+                'fields' => 
+                    [
+                        [
+                            'name' => 'category_title',
+                            'label' => esc_html__('Category Title', 'eazyrecruitz'),
+                            'type' => Controls_Manager::TEXT,
+                            'default' => esc_html__('', 'elementor-promo-categories')
+                        ],
+                        [
+                            'name' => 'category_url',
+                            'label' => __( 'Category Url', 'elementor-promo-categories' ),
+                            'type' => Controls_Manager::URL,
+                            'placeholder' => __( 'https://your-link.com', 'elementor-promo-categories' ),
+                            'show_external' => true,
+                            'default' => ['url' => '','is_external' => true,'nofollow' => true,],
+                        ],
+                        [
+                            'name' => 'category_image',
+                            'label' => esc_html__('Category Image', 'elementor-promo-categories'),
+                            'type' => Controls_Manager::MEDIA,
+                            'default' => ['url' => Utils::get_placeholder_image_src(),],
+                        ],
+                    ]
+            ]
+        );
         $this->end_controls_section();
     }
 
