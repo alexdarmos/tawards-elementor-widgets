@@ -124,7 +124,7 @@ class PromoCategories extends Widget_Base {
 		);
 
         $this->add_control(
-            'category-tabs',
+            'category_tabs',
             [
                 'type' => Controls_Manager::REPEATER,
                 'seperator' => 'before',
@@ -143,7 +143,7 @@ class PromoCategories extends Widget_Base {
                         ],
                         [
                             'name' => 'category_url',
-                            'label' => __( 'Category Url', 'elementor-promo-categories' ),
+                            'label' => esc_html__( 'Category Url', 'elementor-promo-categories' ),
                             'type' => Controls_Manager::URL,
                             'placeholder' => __( 'https://your-link.com', 'elementor-promo-categories' ),
                             'show_external' => true,
@@ -151,10 +151,19 @@ class PromoCategories extends Widget_Base {
                         ],
                         [
                             'name' => 'category_image',
-                            'label' => esc_html__('Category Image', 'elementor-promo-categories'),
+                            'label' => esc_html__( 'Category Image', 'elementor-promo-categories' ),
                             'type' => Controls_Manager::MEDIA,
                             'default' => ['url' => Utils::get_placeholder_image_src(),],
                         ],
+                        [
+                            'name' => 'single_col',
+                            'type' => Controls_Manager::SWITCHER,
+                            'label_on' => esc_html__( 'Full Width', 'elementor-promo-categories' ),
+                            'label_off' => __('Half Width' , 'elementor-promo-categories' ),
+                            'return_value' => 'true',
+                            'default' => 'false'
+                            
+                        ]
                     ]
             ]
         );
@@ -173,9 +182,16 @@ class PromoCategories extends Widget_Base {
         $allowed_tags = wp_kses_allowed_html('post');
         ?>
 
-        <p><?php echo wp_kses( $settings['title'], $allowed_tags );?></p>
+        <div class="promo-categories-container">
+            <?php $counts = 1; foreach ( $settings['category_tabs'] as $key => $item): ?>
+                <div id="promo-category-<?php echo esc_attr($counts); ?>" class="promo-category-item <?php echo wp_kses( $item['single_col'], $allowed_tags ) === 'true' ? 'full-width' : 'half-width'  ?>" >
+                    <img src="<?php echo wp_get_attachment_url( $item['category_image']['id'] ); ?>" alt="replace later!"/>
+                    <h2><?php echo wp_kses( $item['category_title'], $allowed_tags ); ?></h2>
+                    <a href="<?php echo esc_url( $item['category_url']['url'] ); ?>">test</a>
+                </div>
 
- 
+            <?php $counts++; endforeach; ?>
+        </div>
        
 
         <?php
