@@ -204,13 +204,8 @@ class PromoCategories extends Widget_Base {
 
                     <div class="title-icon-container">                
                         <h2><?php echo wp_kses( $item['category_title'], $allowed_tags ); ?></h2>
-                        <!-- <img src="<?php //echo wp_get_attachment_image( $item['category_icon']['id'], 'full' ); ?>"/> -->
-
                         <?php echo wp_get_attachment_image( $item['category_icon']['id'], 'full' ); ?>
-
                     </div>
-
-                    
 
                     <a href="<?php echo esc_url( $item['category_url']['url'] ); ?>"></a>
                 </div>
@@ -218,8 +213,6 @@ class PromoCategories extends Widget_Base {
             <?php $counts++; endforeach; ?>
         </div>
        
-
         <?php
     }
-
 }
