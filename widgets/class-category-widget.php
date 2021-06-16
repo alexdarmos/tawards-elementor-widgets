@@ -44,10 +44,12 @@ class PromoCategories extends Widget_Base {
      * @param array $data Widget data.
      * @param array $args Widget arguments.
      */
-    public function __construct( $data = array(), $args = null ) {
+ 
+     public function __construct( $data = array(), $args = null ) {
         parent::__construct( $data, $args );
 
-        wp_register_style( 'tawardswidget', plugins_url( '/assets/css/tawards-addon.css ', Elementor_Tawards ), array(), '1.0.0' );
+        wp_register_style( 'tawards-elementor-widget-css', plugins_url( 'assets/css/tawards-addon.css', Elementor_Tawards ), array(), '1.0.0' );
+
     }
 
     /**
@@ -97,6 +99,14 @@ class PromoCategories extends Widget_Base {
      */
     public function get_categories() {
         return [ 'general' ];
+    }
+
+    // public function get_script_depends() {
+    //     return [ 'demo-elementor-widget-js' ];
+    // }
+    
+    public function get_style_depends() {
+        return [ 'tawards-elementor-widget-css' ];  
     }
 
     /**
@@ -156,6 +166,12 @@ class PromoCategories extends Widget_Base {
                             'default' => ['url' => Utils::get_placeholder_image_src(),],
                         ],
                         [
+                            'name' => 'category_icon',
+                            'label' => esc_html__( 'Category Icon', 'elementor-promo-categories' ),
+                            'type' => Controls_Manager::MEDIA,
+                            'default' => ['url' => Utils::get_placeholder_image_src(),],
+                        ],
+                        [
                             'name' => 'single_col',
                             'type' => Controls_Manager::SWITCHER,
                             'label_on' => esc_html__( 'Full Width', 'elementor-promo-categories' ),
@@ -184,10 +200,19 @@ class PromoCategories extends Widget_Base {
 
         <div class="promo-categories-container">
             <?php $counts = 1; foreach ( $settings['category_tabs'] as $key => $item): ?>
-                <div id="promo-category-<?php echo esc_attr($counts); ?>" class="promo-category-item <?php echo wp_kses( $item['single_col'], $allowed_tags ) === 'true' ? 'full-width' : 'half-width'  ?>" >
-                    <img src="<?php echo wp_get_attachment_url( $item['category_image']['id'] ); ?>" alt="replace later!"/>
-                    <h2><?php echo wp_kses( $item['category_title'], $allowed_tags ); ?></h2>
-                    <a href="<?php echo esc_url( $item['category_url']['url'] ); ?>">test</a>
+                <div id="promo-category-<?php echo esc_attr($counts); ?>" class="promo-category-item <?php echo wp_kses( $item['single_col'], $allowed_tags ) === 'true' ? 'full-width' : 'half-width'  ?>" style="background-image: url('<?php echo wp_get_attachment_url( $item['category_image']['id'] ); ?>');" >
+
+                    <div class="title-icon-container">                
+                        <h2><?php echo wp_kses( $item['category_title'], $allowed_tags ); ?></h2>
+                        <!-- <img src="<?php //echo wp_get_attachment_image( $item['category_icon']['id'], 'full' ); ?>"/> -->
+
+                        <?php echo wp_get_attachment_image( $item['category_icon']['id'], 'full' ); ?>
+
+                    </div>
+
+                    
+
+                    <a href="<?php echo esc_url( $item['category_url']['url'] ); ?>"></a>
                 </div>
 
             <?php $counts++; endforeach; ?>
