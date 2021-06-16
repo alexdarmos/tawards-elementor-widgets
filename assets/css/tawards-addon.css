@@ -55,9 +55,16 @@
 	position: relative;
 	z-index: 6;
 	pointer-events: none;
+	text-align: center;
 }
 
 .title-icon-container img {
 	width: 75px;
 	height: auto;
+}
+
+@media (max-width: 768px) {
+	.promo-category-item.half-width {
+		flex-basis: 100%;
+	}
 }
